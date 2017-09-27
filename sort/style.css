@@ -1,0 +1,17 @@
+body {
+	font-family: "Roboto";
+}
+
+table {
+	width: 200px;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+th {
+	background: #999;
+}
+
+tr:hover {
+	background: #ddd;
+}

@@ -1,0 +1,60 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto";
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background: black;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+	overflow: hidden;
+}
+
+th {
+	background: red;
+}
+
+td, th {
+    width: 30px;
+	height: 30px;
+    position: relative;
+	text-align: center;
+	vertical-align: center;
+}
+
+td:hover {
+	background-color: lime;
+}
+
+td:hover::before { 
+    width: 10000px; 
+    height: 100%;
+    position: absolute;  
+    top: 0;  
+    left: -5000px;
+    content: "";  
+    background-color: #9f9;
+    z-index: -1;        
+}
+
+td:hover::after { 
+    width: 100%;
+    height: 10000px;    
+    position: absolute; 
+    top: -5000px;
+    left: 0; 
+    content: "";  
+    background-color: #9f9;
+    z-index: -1;        
+}
+
+/* Vertikales Highlighting hab ich abgeschaut :^) */
+/* https://stackoverflow.com/questions/848840/cols-colgroups-and-css-hover-psuedoclass */
