@@ -13,6 +13,11 @@
 			<label><input name="num3" type="number"/></label><br>
 			<label><input name="num4" type="number"/></label><br>
 			<label><input name="num5" type="number"/></label><br>
+			<select name="algorithm" size="3">
+				<option>Bubblesort</option>
+				<option>Insertion Sort</option>
+				<option>Selection Sort</option>
+			</select>
 			<button type="submit">Senden</button>
 		</form>
 	</body>
