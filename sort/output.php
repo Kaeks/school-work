@@ -23,7 +23,14 @@
 		<table>
 		<tr><th>Sortierte Zahlen</th></tr>
 		<?php
-			$output = [];
+			function swap($arr, $key1, $key2) {
+				$temp = $arr[$key1];
+				$arr[$key1] = $arr[$key2];
+				$arr[$key2] = $temp;
+				return $arr;
+			}
+			
+			$output = array();
 			$length = count($input);
 			if($_POST["algorithm"] == "Bubblesort") {
 				//Temporäre Variable für das Umtauschen
@@ -39,20 +46,29 @@
 				}
 				$output = $input;
 			} elseif($_POST["algorithm"] == "Insertion Sort") {
-				/*
-				dude i dont get it anything i do doesnt work
-				*/
+				for($i=0; $i<$length; $i++) {
+					$temp = $input[$i];
+					$j = $i-1;
+					while($j >= 0 && $input[$j] > $temp) {
+						$input[$j+1] = $input[$j];
+						$j--;
+					}
+					$input[$j+1] = $temp;
+				}
+				$output = $input;
 			} elseif($_POST["algorithm"] == "Selection Sort") {
 				$smallest = "";
 				for($i=0; $i<$length; $i++) {
 					$smallest = $input[$i];
-					for($j=$i+1; $j<$length-1; $j++) {
-						if($input[$j] < $smallest) {
+					for($j=$i; $j<$length; $j++) {
+						if($input[$j]<$smallest) {
 							$smallest = $input[$j];
+							$ksmallest = $j;
 						}
 					}
-					$output = array_push($output, $smallest); // <-- ???? why is it null
+					$input = swap($input, $i, $ksmallest);
 				}
+				$output = $input;
 			}
 			//Sortierte Zahlen ausgeben
 			foreach($output as $val) {
